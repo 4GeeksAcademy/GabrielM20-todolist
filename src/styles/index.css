@@ -12,6 +12,8 @@
 */
 body{
     margin-top: 100px;
+    background-color: beige;
+
 
 }
 ul{
@@ -24,4 +26,9 @@ ul il{
     padding: 5px;
 }
 h1 { text-align: center;}
-input{ border:none; width: 100%;}
+input{ border:none; width: 100%;background-color: white;}
+div {background-color:beige;}
+
+i{
+    margin-left: 1300px;
+}
