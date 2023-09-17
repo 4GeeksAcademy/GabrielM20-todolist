@@ -9,9 +9,11 @@ function Todo() {
     event.preventDefault();
     if (inputValue.trim() !== "") {
       setTodos([...todos, inputValue]);
+      
       setInputValue("");
+
     } else {
-      alert("El campo no puede estar vacío");
+      alert("campo vacío");
     }
   }
 
@@ -19,29 +21,31 @@ function Todo() {
     const newTodos = todos.filter((_, currentIndex) => currentIndex !== index);
     setTodos(newTodos);
   }
-
-  useEffect(() => {
-    const getTodo = async () => {
-      let url = "https://playground.4geeks.com/apis/fake/todos/user/";
-      let options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-
-      try {
-        const response = await fetch(url, options);
-        if (response.ok) {
-          const data = await response.json();
-          setTodos(data);
-        } else {
-          console.log("Error", response.status, response.statusText);
-        }
-      } catch (error) {
-        console.error("Error al obtener los datos:", error);
-      }
+  const getTodo = async () => {
+    let user = "GabrielM20";
+    let url = "https://playground.4geeks.com/apis/fake/todos/user/" + user;
+   
+    let options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     };
+
+    try {
+      const response = await fetch(url, options);
+      if (response.ok) {
+        const data = await response.json();
+        setTodos(data);
+      } else {
+        console.log("Error", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("Error al obtener los datos:", error);
+    }
+  };
+  useEffect(() => {
+
     getTodo();
 
   }, []);
@@ -65,7 +69,7 @@ function Todo() {
         </li>
         {todos.map((item, index) => (
           <li key={index}>
-            {item}
+            {item.label}
             <i
               className="fa solid fa-trash"
               onClick={() => {
