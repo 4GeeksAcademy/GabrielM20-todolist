@@ -8,7 +8,14 @@ function Todo() {
   function handleInput(event) {
     event.preventDefault();
     if (inputValue.trim() !== "") {
+
+      let newTask = {label: inputValue, done: false}
+      let newlist = [...list, newTask]
+      console.log(newlist);
+      putTodo(newlist);
+      setList(newlist);
       setTodos([...todos, inputValue]);
+      
       // grabar nueva tarea en la api
       // const nuevaTarea = {tarea: inputValue};
       //putTodo(nuevaTarea)
