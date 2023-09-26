@@ -49,6 +49,31 @@ function Todo() {
     getTodo();
 
   }, []);
+  
+
+  const putTodo = async (listPut) => {
+    let url = "https://playground.4geeks.com/apis/fake/todos/user/GabrielM20"
+    let options = {
+      method: "PUT", 
+      headers: {
+        "Content-Type": "application/json", 
+      },
+      body: JSON.stringify(listPut), 
+    };
+  
+    try {
+      const response = await fetch(url, options);
+      if (response.ok) {
+        const putTodo = await response.json();
+        console.log( putTodo);
+      } else {
+        console.log("error", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("Error al realizar la solicitud PUT:", error);
+    }
+  };
+  
 
   return (
     <div className="container">
@@ -69,7 +94,7 @@ function Todo() {
         </li>
         {todos.map((item, index) => (
           <li key={index}>
-            {item.label}
+            {item.label ||item }
             <i
               className="fa solid fa-trash"
               onClick={() => {

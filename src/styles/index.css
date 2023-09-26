@@ -30,5 +30,7 @@ input{ border:none; width: 100%;background-color: white;}
 div {background-color:beige;}
 
 i{
-    margin-left: 1300px;
+position: absolute;
+right: 50px;
+
 }
