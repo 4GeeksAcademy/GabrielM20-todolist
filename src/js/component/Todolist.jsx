@@ -9,7 +9,9 @@ function Todo() {
     event.preventDefault();
     if (inputValue.trim() !== "") {
       setTodos([...todos, inputValue]);
-      
+      // grabar nueva tarea en la api
+      // const nuevaTarea = {tarea: inputValue};
+      //putTodo(nuevaTarea)
       setInputValue("");
 
     } else {
