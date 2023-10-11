@@ -5,26 +5,7 @@ function Todo() {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
-  function handleInput(event) {
-    event.preventDefault();
-    if (inputValue.trim() !== "") {
-
-      let newTask = {label: inputValue, done: false}
-      let newlist = [...list, newTask]
-      console.log(newlist);
-      putTodo(newlist);
-      setList(newlist);
-      setTodos([...todos, inputValue]);
-      
-      // grabar nueva tarea en la api
-      // const nuevaTarea = {tarea: inputValue};
-      //putTodo(nuevaTarea)
-      setInputValue("");
-
-    } else {
-      alert("campo vacío");
-    }
-  }
+  
 
   function handleRemoveItem(index) {
     const newTodos = todos.filter((_, currentIndex) => currentIndex !== index);
@@ -95,11 +76,12 @@ function Todo() {
             value={inputValue}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                handleInput(e);
+
+                setTodos(todos.concat(inputValue));
               }
             }}
             placeholder="What do you need to do?"
-          />
+          ></input>
         </li>
         {todos.map((item, index) => (
           <li key={index}>

@@ -1,7 +1,6 @@
-import react from "react";
+import React from "react";
 import {link} from "react-router-dom";
-
-fucntion Nsvbar() {
+function Navbar() {
     let brand = "Spain 46";
     return (
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -25,7 +24,7 @@ fucntion Nsvbar() {
           <ul class="dropdown-menu">
             <li><link class="dropdown-item" href="#">Action</link></li>
             <li><link class="dropdown-item" href="#">Another action</link></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><hr class="dropdown-divider" /></li>
             <li><link class="dropdown-item" href="#">Something else here</link></li>
           </ul>
         </li>
@@ -34,7 +33,7 @@ fucntion Nsvbar() {
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
